@@ -1,73 +1,96 @@
-const myCanvas = document.getElementById("canvas");
-const ctx = myCanvas.getContext("2d");
+// add score, timer, and health bar
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-let isOver = false; //what is this?
+// let isOver = false; //what is this?
 
-myCanvas.width = 1300;
-myCanvas.height = 675;
+// const mainCharMonkey = new Image();
+// mainCharMonkey.src = './images/kong.png';
+// let mainCharMonkeyX = 600;
+// let mainCharMonkeyY = 10;
 
-const mainCharKong = new Image();
-mainCharKong.src = './images/kong.png';
-let mainCharKongX = 600;
-let mainCharKongY = 10;
+// const mainChar = new Image();
+// mainChar.src = "./images/Super-Mario-Run-Characters-2.png"; // add mario image
+// let mainCharX = 700;
+// let mainCharY = 520;
 
-const mainCharMario = new Image();
-mainCharMario.src = "./images/Super-Mario-Run-Characters-2.png"; // add mario image
-let mainCharMarioX = 700;
-let mainCharMarioY = 590;
+// const obstacleImgBarrel = new Image();
+// obstacleImgBarrel.src = './images/barrel.webp';
+// let obstacleBarrelX = 600; // why must w x h be set if they randomly generate?
+// let obstacleBarrelY = 0;
+// //barrel hurts player by half 
 
-const obstacleImgBarrel = new Image();
-obstacleImgBarrel.src = './images/barrel.webp';
-let obstacleBarrelX = 600; // why must w x h be set if they randomly generate?
-let obstacleBarrelY = 500;
 
-const obstacleImgFireball = new Image();
-obstacleImgFireball.src = './images/fireball.png';
-let obstacleFireballX = 300;
-let obstacleFireballY = 200;
+// const obstacleImgFireball = new Image();
+// obstacleImgFireball.src = './images/fireball.png';
+// let obstacleFireballX = 300;
+// let obstacleFireballY = 0;
+// //fireball immediately kills player 
 
-function drawImg(name, pathToImg, x, y, w, h) {
-  name = new Image();
-  name.src = pathToImg;
-  // name.onload = () => {
-      ctx.drawImage(name, x, y, w, h);
-  // };
-}
+// const obstacleImgTruck = new Image();
+// obstacleImgTruck.src = './images/animalcontrol.png';
+// let obstacleTruckX = 400;
+// let obstacleTruckY = 0;
 
-function drawEverything() {
-    drawImg(mainCharKong, "./images/kong.png", mainCharKongX, mainCharKongY, 100, 100);
-    drawImg(mainCharMario, "./images/Super-Mario-Run-Characters-2.png", mainCharMarioX, mainCharMarioY, 50, 75);
-    drawImg(obstacleImgBarrel, "./images/barrel.webp", obstacleBarrelX, obstacleBarrelY, 50, 70);
-    drawImg(obstacleImgFireball, "./images/fireball.png", obstacleFireballX, obstacleFireballY, 50, 100);
+// const obstacleImgFirstaid = new Image();
+// obstacleImgFirstaid.src = './images/firstaidkit.png';
+// let obstacleFirstaidX = 300;
+// let obstacleFirstaidY = 0;
+
+// function drawImg(name, pathToImg, x, y, w, h) {
+//   name = new Image();
+//   name.src = pathToImg;
+//   // name.onload = () => {
+//       ctx.drawImage(name, x, y, w, h);
+//   // };
+// }
+
+// function drawEverything() {
+//     drawImg(mainCharMonkey, "./images/kong.png", mainCharMonkeyX, mainCharMonkeyY, 100, 100);
+//     drawImg(mainChar, "./images/Super-Mario-Run-Characters-2.png", mainCharX, mainCharY, 50, 75);
+//     drawImg(obstacleImgBarrel, "./images/barrel.webp", obstacleBarrelX, obstacleBarrelY, 50, 70);
+//     drawImg(obstacleImgFireball, "./images/fireball.png", obstacleFireballX, obstacleFireballY, 50, 100);
+//     drawImg(obstacleImgTruck, "./images/animalcontrol.png", obstacleTruckX, obstacleTruckY, 75, 50);
+//     drawImg(obstacleImgFirstaid, "./images/firstaidkit.png", obstacleFirstaidX, obstacleFirstaidY, 50, 50);
+//     // drawImg(obstacleImgHammer, "../images/hammer.gif", obstacleHammerX, obstacleHammerY, 60, 60)
+  
+
+// //code to loop obstacles 
+// function drawingLoop() { 
+//     ctx.clearRect(0, 0, 1300, 600);
+//     // drawBackground();
+//     obstacleBarrelY += 6;
+//     obstacleFireballY += 5;
+//     obstacleTruckY += 2.2;
+//     obstacleFirstaidY += 2;
+ 
+//     if (obstacleBarrelY > 600) {
+//         obstacleBarrelY = 0;
+//         obstacleBarrelX = Math.floor(Math.random() * 1300);
+//     }
+
+//     if (obstacleFireballY > 600) {
+//       obstacleFireballY = 0;
+//       obstacleFireballX = Math.floor(Math.random() * 1300);
+//     }
+//     // setInterval(() => {
+//     // }, interval);
+//     // use setInterval to delay power drill and power up appearance 
     
-    // if (checkCollision(mainCharMarioX, mainCharMarioY, obstacleBarrelX, obstacleBarrelY, obstacleFireballX, obstacleFireballY)) {
-    //     console.log('You lose!');
-    //     gameOver();
-    // }
-    // if (obstacleX === 0) { // create point ystem to win game
-    //     score++;
-    // }
-}
+//     if (obstacleFirstaidY > 600) {
+//       obstacleFirstaidY  = 0;
+//       obstacleFirstaidX = Math.floor(Math.random() * 1300);
+//     }
 
+//     if (obstacleTruckY > 600) {
+//       obstacleTruckY = 0;
+//       obstacleTruckX = Math.floor(Math.random() * 1300);
+//     }
 
-
-function drawingLoop() {
-    ctx.clearRect(0, 0, 1300, 675);
-    // // drawBackground();
-    // obstacleBarrelX -= 5;
-    // // why are the steps below required if we already established the const above?
-    // drawImg("mainCharKong", "../images/63b0dbdcdc45a0b.png", 0, 525, 65, 65) 
-    // drawImg("mainCharMario", "../images/Barrel_%28furniture%29.PNG.webp",0, 525, 65, 65) // add mario image
-    // drawImg("obstacleImgBarrel", "../images/fireball-sprite-png-7.png", 1000, 545, 50, 100)
-    // drawImg("obstacleImgFireball", "../images/fireball-sprite-png-7.png", 1000, 545, 50, 100)
-    // if (obstacleBarrelX < -70) {
-    //     obstacleBarrelX = 1000;
-    //     obstacleBarrelY = Math.floor(Math.random() * 430);
-    // }
-    drawEverything();
-    // requestAnimationFrame(() => drawingLoop());
-    // if (isOver === false) {
-        requestAnimationFrame(() => drawingLoop());
-    // }
-};
-drawingLoop();
+    
+//     drawEverything();
+//     // requestAnimationFrame(() => drawingLoop());
+//     // if (isOver === false) {
+//         requestAnimationFrame(() => drawingLoop());
+//     // }
+// };
+// drawingLoop();

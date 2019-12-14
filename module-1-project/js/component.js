@@ -1,4 +1,23 @@
+const myCanvas = document.getElementById("canvas");
+const ctx = myCanvas.getContext("2d");
 
+// let isOver = false; //what is this?
+
+myCanvas.width = 1300;
+myCanvas.height = 600;
+
+//This function creates the collision
+ 
+function checkCollision(obj1x, obj1y, obj2x, obj2y){
+  // mainCharY + mainChar-height >= obstacleY
+return obj1y + 65  >= obj2y
+  // mainCharY <= obstacleY + obstacle-height
+  && obj1y <= obj2y + 60
+  // mainCharX + mainChar-width >= obstacleX
+  && obj1x + 65 - 10 >= obj2x
+  // mainCharX <= obstacleX + obstacle-width
+  && obj1x <= obj2x + 60;
+};
 
 
 
