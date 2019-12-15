@@ -1,5 +1,5 @@
-//this js file holds all images and image loops
-//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+//this js file holds all images and image loops, set interval, and obstacle speeds
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 // let isOver = false; //what is this?
 
@@ -9,9 +9,10 @@ mainCharMonkey.src = "./images/Walking/Walking_000.png";
 let mainCharMonkeyX = 525;
 let mainCharMonkeyY = 0;
 
+
 //image of little boy sprites
 const mainChar = new Image();
-mainChar.src = "./images/Super-Mario-Run-Characters-2.png"; // add little boy image
+mainChar.src = "./images/mainCharactercopy.png"; // add animation
 let mainCharX = 700;
 let mainCharY = 520;
 
@@ -19,7 +20,7 @@ let mainCharY = 520;
 //barrel hurts player by half 
 const obstacleImgBarrel = new Image();
 obstacleImgBarrel.src = './images/barrel.webp';
-let obstacleBarrelX = 600; // why must w x h be set if they randomly generate?
+let obstacleBarrelX = 600; 
 let obstacleBarrelY = 0;
 
 
@@ -39,7 +40,7 @@ let obstacleTruckY = 0;
 
 //power-up obstacle
 const obstacleImgFirstaid = new Image();
-obstacleImgFirstaid.src = './images/firstaidkit.png';
+obstacleImgFirstaid.src = './images/4loco.png';
 let obstacleFirstaidX = 300;
 let obstacleFirstaidY = 0;
 
@@ -47,7 +48,7 @@ let obstacleFirstaidY = 0;
 //Harambe's animal control truck
 const animalControl = new Image();
 animalControl.src = "./images/animalcontrol.png"
-let animalControlX = 144;
+let animalControlX = 0;
 let animalControlY = 30;
 
 
@@ -64,33 +65,25 @@ function drawImg(name, pathToImg, x, y, w, h) {
 //this function renders the placement of each mimage
 function drawEverything() {
     drawImg(mainCharMonkey, "./images/Walking/Walking_000.png", mainCharMonkeyX, mainCharMonkeyY, 250, 150);
-    drawImg(mainChar, "./images/Super-Mario-Run-Characters-2.png", mainCharX, mainCharY, 50, 75);
+    drawImg(mainChar, "./images/mainCharactercopy.png", mainCharX, mainCharY,50, 70);
     drawImg(obstacleImgBarrel, "./images/barrel.webp", obstacleBarrelX, obstacleBarrelY, 50, 70);
     drawImg(obstacleImgFireball, "./images/fireball.png", obstacleFireballX, obstacleFireballY, 50, 100);
     drawImg(obstacleImgTruck, "./images/animalcontrol.png", obstacleTruckX, obstacleTruckY, 75, 50);
-    drawImg(obstacleImgFirstaid, "./images/firstaidkit.png", obstacleFirstaidX, obstacleFirstaidY, 50, 50);
+    drawImg(obstacleImgFirstaid, "./images/4loco.png", obstacleFirstaidX, obstacleFirstaidY, 35,75);
     drawImg(animalControl, "./images/animalcontrol.png", animalControlX, animalControlY, 130, 100)
-  
 
-    // if (checkcollision(mainCharX, mainCharY, obstacleBarrelX, obstacleBarrelY)) {
-    //   console.log("ouch!");
-    // }
-    
-    // if (checkCollision(mainCharMarioX, mainCharMarioY, obstacleBarrelX, obstacleBarrelY, obstacleFireballX, obstacleFireballY)) {
-    //     console.log('You lose!');
-    //     gameOver();
-    // }
-    // if (obstacleX === 0) { // create point ystem to win game
-    //     score++;
-    // }
-}
+  //   if (mainChar collides with animalControl){
+  //     score ++;
+  // }
+
+  }
 
 //This function loops each obstacle
 function drawingLoop() { 
     ctx.clearRect(0, 0, 1300, 600);
     // drawBackground();
     obstacleBarrelY += 6;
-    obstacleFireballY += 5;
+    obstacleFireballY += 3.5;
     obstacleTruckY += 2.2;
     obstacleFirstaidY += 2;
  
@@ -103,11 +96,12 @@ function drawingLoop() {
       obstacleFireballY = 0;
       obstacleFireballX = Math.floor(Math.random() * 1300);
     }
-    // setInterval(() => {
-    
-    // }, interval);
+
     // use setInterval to delay power-up and animal control truck appearance 
+  //   setInterval(() => {
     
+  // }, interval);
+
     if (obstacleFirstaidY > 600) {
       obstacleFirstaidY  = 0;
       obstacleFirstaidX = Math.floor(Math.random() * 1300);
