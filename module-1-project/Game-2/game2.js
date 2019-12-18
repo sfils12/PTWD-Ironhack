@@ -10,13 +10,13 @@ class Game {
     }
 }
 
-init() {
+function init() {
     this.canvas = document.getElementById("canvas");
     this.ctx = this.canvas.getContext("2d");
     this.start();
 }
 
-start() {
+function start() {
     this.drawBackground();
     this.drawMainCharacters();
     const interval = setInterval(() => {
@@ -38,7 +38,7 @@ start() {
     }, interval);
 }
 
-drawBackground() {
+function drawBackground() {
     this.background.src = "../images/b1dac0470bdf2f7cc0c559599fba19f9.jpg";
     this.ctx.drawImage(
         this.backgroundImg,
@@ -49,10 +49,10 @@ drawBackground() {
     );
 }
 
-clear() {
+function clear() {
     this.ctx.clearRect(0,0,canvas.width,this.canvas.height);
 }
 
-drawMainCharacters() {
+function drawMainCharacters() {
     this.player.drawComponent("../images/mainCharactercopy.png");
 }
