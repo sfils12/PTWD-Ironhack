@@ -2,3 +2,4 @@
 // (health bar for mainChar and Harambe)
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
+// let score = 0;

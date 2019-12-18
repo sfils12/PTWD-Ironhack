@@ -36,3 +36,6 @@ document.onkeydown = function (event) {
       console.log("I'm not sure what you're doing!");
   }
 };
+
+// let health = document.getElementById("health")
+// // health.value -= 50; only on collision 
