@@ -90,7 +90,7 @@ function drawEverything() {
       // gameOver();
       // Time.timeScale = 0;
       drawImg(animalControl, "./images/animalcontrol.png", animalControlX, animalControlY, 130, 100);
-      animalControlX+=10;
+      animalControlX+=9;
     
 
       if (checkContact(mainCharMonkeyY, animalControlY, mainCharMonkeyX, animalControlX)) {
@@ -98,6 +98,7 @@ function drawEverything() {
         // youWin();
         score++;
         document.getElementById('score').innerHTML = "Score: " + score;
+        animalControlX = 0;
         // ctx.clearRect(1400,650);
         // reset();
     }
@@ -181,7 +182,7 @@ function drawingLoop() {
 
 function checkStatus(){
 console.log("Check Status being called")
-    if(score >= 15){
+    if(score >= 3){
     youWin();
     }
 }
