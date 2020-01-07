@@ -23,4 +23,3 @@ var americanActors = [
 // console.log(mostPopularActor(americanActors)); // => "Jack Nicholson"
 
 mostPopularActor(americanActors);
-mostPopularActor(americanActors);
