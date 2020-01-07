@@ -14,13 +14,23 @@ function mostPopularActor(actors) {
 	return actorName;
 }
 
-var americanActors = [
-	{ name: 'Tom Hanks', popularityScore: 87 },
-	{ name: 'Natalie Portman', popularityScore: 90 },
-	{ name: 'Jack Nicholson', popularityScore: 98 },
-	{ name: 'Julia Roberts', popularityScore: 88 }
+var americanActors = [{
+		name: 'Tom Hanks',
+		popularityScore: 87
+	},
+	{
+		name: 'Natalie Portman',
+		popularityScore: 90
+	},
+	{
+		name: 'Jack Nicholson',
+		popularityScore: 98
+	},
+	{
+		name: 'Julia Roberts',
+		popularityScore: 88
+	}
 ];
-
 // console.log(mostPopularActor(americanActors)); // => "Jack Nicholson"
 
 mostPopularActor(americanActors);
