@@ -20,6 +20,7 @@ var americanActors = [
 	{ name: 'Jack Nicholson', popularityScore: 98 },
 	{ name: 'Julia Roberts', popularityScore: 88 }
 ];
+
 // console.log(mostPopularActor(americanActors)); // => "Jack Nicholson"
 
 mostPopularActor(americanActors);
